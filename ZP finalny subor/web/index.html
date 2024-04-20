@@ -1,0 +1,40 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/png" href="/LCfavicon.png">
+    <title>Klikacia Hra</title>
+</head>
+<body>
+    <div id="game-container">
+        <h1 style="color:red">Inštrukcie na začiatok</h1>
+        <p>Jedná sa o jednoduchú klikaciu hru s dotazníkom pred a po odohraní.</p>
+        <p>Pre účasť je potrebné mať počítačovú myš alebo touchpad.</p>
+        <p><b>Cieľom  tejto hry </b> je v čo najkratšom čase vyklikať všetky štvorce v správnom poradí.</p>
+        <p>Štvorce sa objavia na náhodnej pozícii s náhodnou farbou a veľkosťou. </p>
+        <p><b>Samotná hra pozostáva z 3 levelov</b>, po dokončení aktuálneho prechádzate na další.</p>
+        <p>Každý level má svoje individuálne inštrukcie.</p>
+        <p>Zapnite si prosím počas hry aj <b>zvuk</b> ten je súčasťou hry.</p>
+        <p>Potom ako dohráte budete presmerovaný na dotazník po odohraní.</p>
+        
+        <button id="questionnaire-button">Dotazník 1</button>
+        
+
+
+        <script src="/game.js"></script>
+         <script>
+           
+            const questionnaireButton = document.getElementById('questionnaire-button');
+            questionnaireButton.addEventListener('click', function () {
+                
+                window.location.href = 'dotaznik1.php';
+            });
+
+        </script>
+    </div>
+</body>
+</html>

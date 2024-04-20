@@ -1,0 +1,200 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5; 
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 700px; 
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 30px; 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px; 
+    text-align: center; 
+}
+
+h1 {
+    color: #4caf50; 
+}
+
+.question {
+    margin-bottom: 20px; 
+    text-align: left; 
+}
+
+.question label {
+    display: block;
+    font-size: 18px; 
+    font-weight: bold;
+    margin-bottom: 10px; 
+    color: #333; 
+}
+
+.question input[type="radio"],
+.question input[type="checkbox"] {
+    display: none; 
+}
+
+.question input[type="radio"] + label {
+    position: relative;
+    padding-left: 30px; 
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1.8;
+}
+
+.question input[type="radio"] + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 4px; /* Poloha radiobuttonu voči textu */
+    width: 20px; /* Veľkosť radiobuttonu */
+    height: 20px;
+    border: 2px solid #4caf50; /* Farba ohraničenia radiobuttonu */
+    border-radius: 50%;
+    background-color: #fff; /* Farba radiobuttonu */
+    transition: background-color 0.3s;
+}
+
+.question input[type="radio"]:checked + label:before {
+    background-color: #4caf50; /* Farba radiobuttonu pri označení */
+}
+
+/* Nový štýl pre checkboxes */
+.question input[type="checkbox"] + label {
+    position: relative;
+    padding-left: 30px; /* Vzdialenosť medzi checkboxom a textom */
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1.8;
+}
+
+.question input[type="checkbox"] + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 4px; /* Poloha checkboxu voči textu */
+    width: 20px; /* Veľkosť checkboxu */
+    height: 20px;
+    border: 2px solid #4caf50; /* Farba ohraničenia checkboxu */
+    background-color: #fff; /* Farba checkboxu */
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.question input[type="checkbox"]:checked + label:before {
+    background-color: #4caf50; /* Farba checkboxu pri označení */
+}
+
+.answer {
+    margin-bottom: 15px;
+    text-align: left; /* Zarovnanie textu odpovede na ľavú stranu */
+}
+
+textarea, input, select {
+    width: calc(100% - 24px); /* Oprava šírky inputov pre lepší vzhľad */
+    padding: 12px; 
+    margin-top: 5px; 
+    display: inline-block; /* Zarovnanie inputov a selectov na jednu líniu */
+    box-sizing: border-box;
+    border: 1px solid #ddd; 
+    border-radius: 6px;
+}
+
+#howoften-container,
+#current-emotion-container {
+    margin-bottom: 20px; 
+    text-align: left; /* Zarovnanie textu na ľavú stranu */
+}
+
+#howoften-label,
+#current-emotion-label {
+    top: -20px; 
+    left: 0;
+}
+
+#howoften,
+#current-emotion {
+    width: 100%;
+    margin-top: 10px; 
+    height: 20px; 
+    appearance: none;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    border-radius: 10px; 
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+#howoften::-webkit-slider-thumb,
+#current-emotion::-webkit-slider-thumb {
+    appearance: none;
+    width: 25px; 
+    height: 25px; 
+    background: #4caf50;
+    border-radius: 50%; 
+    cursor: pointer;
+}
+
+#howoften::-moz-range-thumb,
+#current-emotion::-moz-range-thumb {
+    width: 25px; 
+    height: 25px; 
+    background: #4caf50;
+    border: none;
+    border-radius: 50%; 
+    cursor: pointer;
+}
+
+#emoji-container {
+    font-size: 60px; 
+    text-align: center;
+    margin-bottom: 20px; 
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #4caf50;
+    border-radius: 8px;
+    background-color: #4caf50;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px; 
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.hidden {
+    display: none;
+}
+
+#expectation-words-container {
+    margin-top: 20px;
+    text-align: left; /* Zarovnanie textu na ľavú stranu */
+}
+  
+#expectation-words-container label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#expectation-words-container div {
+    display: flex;
+    flex-wrap: wrap; 
+}
+
+#expectation-words-container input {
+    margin-right: 10px; 
+    margin-bottom: 10px; 
+}
+
+#expectation-words-container label {
+    font-size: 14px; 
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/game.css">
+    <link rel="icon" type="image/png" href="/LCfavicon.png">
+    <title>Klikacia Hra</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="game-container">
+        <div id="timer-level-score-container">
+            <div id="timer-container"></div>
+            <div id="level-score-container">
+                <div id="level-container" class="hidden">Level 2</div>
+                <div id="score-container" class="hidden">Skóre: 0</div>
+            </div>
+            <div id="instructions-container">
+                <h1 style="color:red">Inštrukcie pre level 2 </h1>
+                <p> Klikajte na štvorce v poradí od 1 do 20. Na tento level máte 40 sekúnd.</p>
+                <p> V prípade vypršania času budete automaticky presmerovaný na level 3.</p>
+                <p> Cieľom je ich vyklikať čo najrýchlejšie s čo najmenšou chybovosťou.</p>
+            </div>
+        </div>
+        <button id="start-button">Štart</button>
+        <canvas id="game-canvas" width="1000" height="600"></canvas>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="/level2.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const startButton = document.getElementById('start-button');
+                const timerContainer = document.getElementById('timer-container');
+                const instructionsContainer = document.getElementById('instructions-container');
+                const levelContainer = document.getElementById('level-container'); // Definícia pre levelContainer
+                const scoreContainer = document.getElementById('score-container'); // Definícia pre scoreContainer
+
+                startButton.addEventListener('click', function () {
+                    startButton.classList.add('hidden');
+                    instructionsContainer.style.display = 'none'; // Skryť inštrukcie po stlačení tlačidla Štart
+                    levelContainer.classList.remove('hidden'); // Zobraziť level container po stlačení tlačidla Štart
+                    scoreContainer.classList.remove('hidden'); // Zobraziť score container po stlačení tlačidla Štart
+                });
+
+                // Funkcia na zobrazenie inštrukcií pre daný level
+                function showInstructions(level) {
+                    if (level === 2) {
+                        instructionsContainer.style.display = 'block'; // inštrukcie iba pre prvý level
+                    } else {
+                        instructionsContainer.style.display = 'none'; 
+                    }
+                }
+
+                // Pokiaľ chcete zobraziť inštrukcie pre určitý level, zavolajte funkciu showInstructions(level)
+                 showInstructions(2);
+
+                const getSessionIDFromCookie = () => {
+                    return document.cookie.replace(/(?:(?:^|.*;\s*)session\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+                };
+
+               // pokus ziskať čas kedy expiruje...
+const getSessionCookieExpiration = () => {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        if (cookie.startsWith('session=')) {
+            const cookieParts = cookie.split('=');
+            const expirationString = decodeURIComponent(cookieParts[1]); // dekoodvanie...
+            const expiration = new Date(expirationString);
+            if (!isNaN(expiration.getTime())) { // kontrola expiracie sessionu
+                const now = new Date();
+                const diffMs = expiration - now;
+                const diffMins = Math.round(diffMs / 60000); // Convert milliseconds to minutes
+                return diffMins;
+            } else {
+                return null; 
+            }
+        }
+    }
+    return null;
+};
+                // zobrazim si sessionID ako pomocku 
+                const sessionID = getSessionIDFromCookie();
+                const expiration = getSessionCookieExpiration();
+                console.log(`Session ID: ${sessionID} (Vyprší: ${expiration})`);
+            });
+        </script>
+    </div>
+</body>
+
+</html>
