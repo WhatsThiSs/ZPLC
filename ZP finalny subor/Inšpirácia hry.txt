@@ -1,0 +1,2 @@
+Táto práca bola čiastočne inšpirovaná projektom od Pentel (2015). 
+Chceli by som týmto poďakovať autorom za ich prácu a nápady, ktoré významne prispeli k vývoju tohto projektu.
